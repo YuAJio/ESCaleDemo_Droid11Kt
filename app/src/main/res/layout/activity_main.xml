@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="acty"
+            type="com.mysafe.escalektdemo.MainActivity" />
+
+        <variable
+            name="weightStr"
+            type="String" />
+
+        <variable
+            name="canInit"
+            type="Boolean" />
+
+        <variable
+            name="isFlashOff"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glVCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glVBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{()->acty.clickEventActive()}"
+            android:text="@string/active"
+            app:layout_constraintBottom_toBottomOf="@id/glVCenter"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintStart_toStartOf="@id/glStart"
+            app:layout_constraintTop_toTopOf="@id/glVCenter"
+            app:layout_constraintWidth_percent="0.12" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:enabled="@{canInit}"
+            android:onClick="@{()->acty.clickEventInit()}"
+            android:text="@string/init"
+            app:layout_constraintBottom_toBottomOf="@id/glVCenter"
+            app:layout_constraintEnd_toEndOf="@id/glEnd"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintTop_toTopOf="@id/glVCenter"
+            app:layout_constraintWidth_percent="0.12" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{()->acty.setZero()}"
+            android:text="@string/set_zero"
+            app:layout_constraintBottom_toBottomOf="@id/glVBottom"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintStart_toStartOf="@id/glStart"
+            app:layout_constraintTop_toTopOf="@id/glVBottom"
+            app:layout_constraintWidth_percent="0.12" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{()->acty.getZero()}"
+            android:text="@string/get_zero"
+            app:layout_constraintBottom_toBottomOf="@id/glVBottom"
+            app:layout_constraintEnd_toEndOf="@id/glEnd"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintTop_toTopOf="@id/glVBottom"
+            app:layout_constraintWidth_percent="0.12" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{!isFlashOff}"
+            android:onClick="@{()->acty.changeFlashLight()}"
+            android:text="@{isFlashOff?@string/flash_off:@string/flash_on}"
+            app:layout_constraintBottom_toBottomOf="@id/glVBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/glVBottom" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{weightStr}"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/glVCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/glVCenter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LibTestApp_KT</string>
+    <string name="active">激活</string>
+    <string name="init">初始化</string>
+    <string name="set_zero">置零</string>
+    <string name="get_zero">获取零点值</string>
+    <string name="flash_on">打开闪光灯</string>
+    <string name="flash_off">关闭闪光灯</string>
+
+</resources>
